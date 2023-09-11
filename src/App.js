@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import Todo from './com/Todo';
-
+import Todo from './com/TodoForm';
+import TodoList from './com/TodoList';
 
 function App() {
 //   const [count ,setcount]=useState(0)
@@ -20,7 +20,8 @@ const todo = (e) => {
 }
   return (
     <div className="App">
-     <Todo todolist={update}/>
+     <Todo updateTodo = {todo} />
+     <TodoList/>
 {/* <input type="text" value={count} /> */}
 {/* <button onClick={()=>setcount(count+1)}>Add</button> */}
     </div>
