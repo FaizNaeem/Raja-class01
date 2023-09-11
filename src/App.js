@@ -21,7 +21,9 @@ const todo = (e) => {
   return (
     <div className="App">
      <Todo updateTodo = {todo} />
-     <TodoList/>
+     <TodoList
+           todoList = {update} 
+            />
 {/* <input type="text" value={count} /> */}
 {/* <button onClick={()=>setcount(count+1)}>Add</button> */}
     </div>

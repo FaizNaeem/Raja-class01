@@ -14,6 +14,8 @@ const submit = (e) => {
     setInputValue('')
 }
   return (
+    <>
+    <h1 className=''>Todo List</h1>
     <div className='center'>
       <form action="" onSubmit={submit}>
 
@@ -22,7 +24,9 @@ const submit = (e) => {
   <button className='btn btn-success' type='submit' onClick={submit}>Add</button>
 </div>
       </form>
+    
 
     </div>
+      </>
   )
 }

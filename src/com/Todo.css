@@ -6,15 +6,20 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    /* height: 100vh; */
+    /* margin-top: 10%; */
     width: 100%;
 }
+
 .form-control:focus,.form-control{
     box-shadow: 0px 0px 0px white;
     border: 1px solid #ced4da;
     text-align: center;
     color: #626364;
 
+}
+h1{
+    margin-top: 100px;
 }
 .btn:focus{
     box-shadow: 0px 0px 0px white;
