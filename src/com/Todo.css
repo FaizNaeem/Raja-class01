@@ -23,5 +23,4 @@ h1{
 }
 .btn:focus{
     box-shadow: 0px 0px 0px white;
-    border: 1px solid green;
 }
