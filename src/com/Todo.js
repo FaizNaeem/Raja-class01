@@ -1,13 +1,26 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Todo.css'
 
-export default function Todo() {
+export default function Todo(props) {
+  const {
+    updateTodo
+} = props
+let [inputValue , setInputValue] = useState('');
+
+const submit = (e) => {
+    e.preventDefault()
+    updateTodo(inputValue);
+    setInputValue('')
+}
   return (
     <div className='center'>
+      <form action="" onSubmit={submit}>
+
       <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Add Todo" aria-label="Username" required aria-describedby="basic-addon1"/>
-  <button className='btn btn-success' onClick={}>Add</button>
+  <input type="text" class="form-control" placeholder="Add Todo" aria-label="Username" required aria-describedby="basic-addon1" onChange={(e)=>setInputValue(e.target.value)}/>
+  <button className='btn btn-success' type='submit'>Add</button>
 </div>
+      </form>
 
     </div>
   )
