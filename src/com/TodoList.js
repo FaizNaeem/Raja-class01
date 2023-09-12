@@ -8,7 +8,7 @@ export default function TodoList(props) {
         console.log(todoList);
     
         const edit = (i) => {
- 
+console.log(i);
         }
         const dele = (e) => {
           const hello =  todoList.filter((ele ,ind)=>{
