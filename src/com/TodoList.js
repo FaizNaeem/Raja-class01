@@ -7,7 +7,6 @@ export default function TodoList(props) {
             todoList
         } = props
         console.log(todoList);
-    
         const edit = (i,e) => {
           Swal.fire({
               title: `Enter Value to Replace ${e}`,
