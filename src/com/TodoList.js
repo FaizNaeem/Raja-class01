@@ -7,11 +7,14 @@ export default function TodoList(props) {
         } = props
         console.log(todoList);
     
-        const edit = (e) => {
-           
+        const edit = (i) => {
+ 
         }
         const dele = (e) => {
-            console.log(e);
+          const hello =  todoList.filter((ele ,ind)=>{
+            return ind!== e
+
+          })
         }
   return (
     <div>
@@ -19,12 +22,18 @@ export default function TodoList(props) {
           {
             todoList.map((element , index , array) => {
                 console.log(element);
-                return (
-                <li style={{textTransform : 'capitalize'}}>{element}
-                <button className='btn btn-sm btn-success' onClick={() => edit(element)}>Edit</button>    
-                <button className='btn btn-sm btn-danger' onClick={() => dele(element)}>Delete</button>    
+                if(!element){
+
+                }
+                else{
+
+                  return (
+                    <li style={{textTransform : 'capitalize'}}>{element}
+                <button className='btn btn-sm btn-success' onClick={() => edit(index)}>Edit</button>    
+                <button className='btn btn-sm btn-danger' onClick={() => dele(index)}>Delete</button>    
                 </li>
                 )
+              }
             })
           }
       </ul>
