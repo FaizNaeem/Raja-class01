@@ -8,9 +8,9 @@ export default function TodoList(props) {
         } = props
         console.log(todoList);
     
-        const edit = (i) => {
+        const edit = (i,e) => {
           Swal.fire({
-              title: `Enter Value to Replace`,
+              title: `Enter Value to Replace ${e}`,
               input: 'text',
               confirmButtonText: 'Replace / Edit !',
               showLoaderOnConfirm: true,
@@ -55,8 +55,8 @@ export default function TodoList(props) {
 
                   return (
                     <li style={{textTransform : 'capitalize'}}>{element}
-                <button className='btn btn-sm btn-success' onClick={() => edit(index)}>Edit</button>    
-                <button className='btn btn-sm btn-danger' onClick={() => dele(index)}>Delete</button>    
+                <button className='btn btn-sm btn-success' onClick={() => edit(index,element)}>Edit</button>    
+                <button className='btn btn-sm btn-danger' onClick={() => dele(index,element)}>Delete</button>    
                 </li>
                 )
               }
