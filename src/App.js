@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-// import Faiz from './com/Faiz';
-import ErrorHandling from './com/ErrorHandling';
+import Faiz from './com/Faiz';
+// import ErrorHandling from './com/ErrorHandling';
 // import Todo from './com/TodoForm';
 // import TodoList from './com/TodoList';
 
@@ -22,8 +22,8 @@ const todo = (e) => {
 }
   return (
     <div className="App">
-      {/* <Faiz /> */}
-<ErrorHandling/>
+      <Faiz />
+{/* <ErrorHandling/> */}
 
      {/* <Todo updateTodo = {todo} />
      <TodoList
