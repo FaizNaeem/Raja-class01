@@ -21,6 +21,7 @@ export default function Faiz() {
     const [item ,setItem]= useState(data1());
     const [btn ,setBtn]= useState(true)
     const [select ,setSelect]= useState(null)
+    console.log(item);
 const Submit =()=>{
     if(!input){
         Swal.fire({
@@ -35,7 +36,7 @@ setItem(
         console.log(el.id);
         console.log(select);
         if(el.id==select){
-            return{el,name:input}
+            return{...el,name:input}
         }
         return el
     })
@@ -79,7 +80,7 @@ let data = localStorage.setItem("list",JSON.stringify((item)))
     // console.log(input);
   return (
     <>
-        <h1 className=''>Todo List 📝</h1>
+        <h1 className=''>Todo List pen📝</h1>
     <div className='center'>
       {/* <form action="" > */}
 
@@ -89,7 +90,8 @@ let data = localStorage.setItem("list",JSON.stringify((item)))
       
       btn? <button className='btn btn-success' type='submit' onClick={Submit}>Add</button>: <button className='btn btn-success' type='submit' onClick={Submit}>Edit</button>
   }
-</div>{
+</div>
+{
     item.map((element)=>{
         // console.log(e.id);
         // let hi = e
