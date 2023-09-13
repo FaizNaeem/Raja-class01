@@ -33,8 +33,8 @@ const Submit =()=>{
     else if(input && select){
 setItem(
     item.map((el)=>{
-        console.log(el.id);
-        console.log(select);
+        // console.log(el.id);
+        // console.log(select);
         if(el.id==select){
             return{...el,name:input}
         }
@@ -76,8 +76,7 @@ setSelect(e)
 useEffect(()=>{
  localStorage.setItem("list",JSON.stringify((item)))
 },[item])
-    // console.log(item);
-    // console.log(input);
+ 
   return (
     <>
         <h1 className=''>Todo List 📝</h1>
