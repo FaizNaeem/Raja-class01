@@ -10,9 +10,13 @@
     /* margin-top: 10%; */
     width: 100%;
 }
+.btn-success{
+    float: right;
+    margin-right: 10px;
+}
 h6{
-    background-color: gray;
-    color: white;
+    /* background-color: gray; */
+    /* color: white; */
     padding: 5px;
     border-radius: 5px;
     text-transform: capitalize;

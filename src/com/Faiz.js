@@ -1,12 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './todolist.css'
 import './Todo.css'
 import Swal from 'sweetalert2';
 
+const data1 =()=>{
+    // localStorage.getItem("list")
+    if(data1){
+    
+        return JSON.parse( localStorage.getItem("list"))
+    }
+    else{
+        return []
+    }
+}
+    
+
 
 export default function Faiz() {
     const [input ,setInput]= useState("");
-    const [item ,setItem]= useState([]);
+    const [item ,setItem]= useState(data1());
+    const [btn ,setBtn]= useState(true)
+    const [select ,setSelect]= useState(null)
 const Submit =()=>{
     if(!input){
         Swal.fire({
@@ -15,9 +29,25 @@ const Submit =()=>{
             
           })
     }
+    else if(input && select){
+setItem(
+    item.map((el)=>{
+        console.log(el.id);
+        console.log(select);
+        if(el.id==select){
+            return{el,name:input}
+        }
+        return el
+    })
+)
+setBtn(true)
+setInput("")
+setSelect(null)
+    }
     else{
-
-        setItem([...item,input])
+let obj = {id:new Date().getTime().toString(),name:input}
+console.log(obj);
+        setItem([...item,obj])
         setInput("")
         // console.log(item);
         // console.log(input);
@@ -25,52 +55,48 @@ const Submit =()=>{
     // console.log(item);
 }
 const Del = (e)=> {
-    let save = item.filter((ele,ind)=>{
-return ind!==e
+    console.log(e);
+    let save = item.filter((ele)=>{
+return e!==ele.id
     });
     setItem(save)
 // console.log(e);
 }
 const Edit=(e)=>{
-    Swal.fire({
-        title: `Enter Value to Replace ${e}`,
-        input: 'text',
-        confirmButtonText: 'Replace / Edit !',
-        showLoaderOnConfirm: true,
-        content:"hi",
-        html: `
-        <input
-          type="text"
-          value="${e}"
-          step="${e}"
-          class="swal2-input"
-          id="range-value">`
-       
-      })
-      .then(async (result) => {
-      if (result.isConfirmed) {
-      
-      }
-    })
+ let store = item.find((ele)=>{
+return e===ele.id
+})
+setBtn(false)
+setInput(store.name)
+setSelect(e)
+//  console.log(select);
+//    console.log(e);
 }
+useEffect(()=>{
+let data = localStorage.setItem("list",JSON.stringify((item)))
+},[item])
     // console.log(item);
     // console.log(input);
   return (
     <>
-        <h1 className=''>Todo List 🖊⛔</h1>
+        <h1 className=''>Todo List 📝</h1>
     <div className='center'>
       {/* <form action="" > */}
 
       <div class="input-group mb-3">
   <input type="text" class="form-control" placeholder="Add Todo" aria-label="Username" value={input} required aria-describedby="basic-addon1" onChange={(e)=>setInput(e.target.value)} />
-  <button className='btn btn-success' type='submit' onClick={Submit}>Add</button>
+  {
+      
+      btn? <button className='btn btn-success' type='submit' onClick={Submit}>Add</button>: <button className='btn btn-success' type='submit' onClick={Submit}>Edit</button>
+  }
 </div>{
-    item.map((e,i)=>{
+    item.map((element)=>{
+        // console.log(e.id);
         // let hi = e
 return(
-<ul className='row'>
-<h6>{e} <button className='btn btn-sm hi btn-danger' onClick={()=>Del(i)}><i class="fa-solid fa-trash"></i></button></h6>
-  <button className='btn btn-success' onClick={()=>Edit(e)}><i class="fa-solid fa-pen-to-square"></i></button>
+<ul className='row' key={element.id}>
+<h6 className=''>{element.name} <button className='btn btn-sm hi btn-danger' onClick={()=>Del(element.id)}><i class="fa-solid fa-trash"></i></button><button className='btn btn-success btn-sm ' onClick={()=>Edit(element.id)}><i class="fa-solid fa-pen-to-square"></i></button></h6>
+  
     <hr/>
 </ul>
 )
