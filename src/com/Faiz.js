@@ -74,13 +74,13 @@ setSelect(e)
 //    console.log(e);
 }
 useEffect(()=>{
-let data = localStorage.setItem("list",JSON.stringify((item)))
+ localStorage.setItem("list",JSON.stringify((item)))
 },[item])
     // console.log(item);
     // console.log(input);
   return (
     <>
-        <h1 className=''>Todo List pen📝</h1>
+        <h1 className=''>Todo List 📝</h1>
     <div className='center'>
       {/* <form action="" > */}
 
